@@ -20,6 +20,10 @@
 		4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35B920EC7DB9009B3893 /* MovieEditViewController.swift */; };
 		4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35BC20EC90AA009B3893 /* VideoClip.swift */; };
 		4CFB35C220EC9769009B3893 /* MovieRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C120EC9769009B3893 /* MovieRecordViewModel.swift */; };
+		4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */; };
+		4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C620ECA461009B3893 /* RecordSession.swift */; };
+		4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */; };
+		4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		4CFB35B920EC7DB9009B3893 /* MovieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEditViewController.swift; sourceTree = "<group>"; };
 		4CFB35BC20EC90AA009B3893 /* VideoClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClip.swift; sourceTree = "<group>"; };
 		4CFB35C120EC9769009B3893 /* MovieRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecordViewModel.swift; sourceTree = "<group>"; };
+		4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPreviewView.swift; sourceTree = "<group>"; };
+		4CFB35C620ECA461009B3893 /* RecordSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSession.swift; sourceTree = "<group>"; };
+		4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEditView.swift; sourceTree = "<group>"; };
+		4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 		4CFB359A20EC76F7009B3893 /* MVideoEdit */ = {
 			isa = PBXGroup;
 			children = (
+				4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */,
+				4CFB35C320EC99F9009B3893 /* View */,
 				4CFB35C020EC9751009B3893 /* ViewModel */,
 				4CFB35BE20EC973E009B3893 /* Controller */,
 				4CFB35BB20EC909D009B3893 /* Model */,
@@ -103,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFB35BC20EC90AA009B3893 /* VideoClip.swift */,
+				4CFB35C620ECA461009B3893 /* RecordSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +133,15 @@
 				4CFB35C120EC9769009B3893 /* MovieRecordViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4CFB35C320EC99F9009B3893 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */,
+				4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,10 +238,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFB35C220EC9769009B3893 /* MovieRecordViewModel.swift in Sources */,
+				4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */,
+				4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */,
 				4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */,
 				4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */,
 				4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */,
+				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,
 				4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */,
+				4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */,
 				4CFB35B820EC7DA4009B3893 /* MovieRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
