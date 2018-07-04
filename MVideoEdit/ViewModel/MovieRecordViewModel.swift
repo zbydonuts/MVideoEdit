@@ -11,6 +11,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
+
 final class MovieRecordViewModel: NSObject, RecordEditViewModel {
     let recordSession = RecordSession()
     
@@ -30,6 +31,8 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         return Action { SignalProducer(value: $0) }
     }()
     
+    let inRecording = MutableProperty<Bool>(false)
+    
     override init() {
         super.init()
         
@@ -38,7 +41,10 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
             sSelf.recordSession.switchCamera()
         }
         
-        
+        recordAction.values.disOnMainWith(self).observeValues { [weak self] in
+            guard let sSelf = self else { return }
+            sSelf.inRecording.swap(!sSelf.inRecording.value)
+        }
     }
     
     func startCapturing() {

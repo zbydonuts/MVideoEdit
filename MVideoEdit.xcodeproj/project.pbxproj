@@ -24,9 +24,13 @@
 		4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C620ECA461009B3893 /* RecordSession.swift */; };
 		4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */; };
 		4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */; };
+		4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CC20ECC59C009B3893 /* AudioClip.swift */; };
+		4CFB35D120ECCEE9009B3893 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35D020ECCEE9009B3893 /* Test.m */; };
+		F52C4ECE5C53698F64B5E5C8 /* Pods_MVideoEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.release.xcconfig"; sourceTree = "<group>"; };
 		4CFB359820EC76F7009B3893 /* MVideoEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVideoEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFB359B20EC76F7009B3893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFB359D20EC76F7009B3893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,13 @@
 		4CFB35C620ECA461009B3893 /* RecordSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSession.swift; sourceTree = "<group>"; };
 		4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEditView.swift; sourceTree = "<group>"; };
 		4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtension.swift; sourceTree = "<group>"; };
+		4CFB35CC20ECC59C009B3893 /* AudioClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
+		4CFB35CE20ECCEE8009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CFB35CF20ECCEE9009B3893 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Test.h; path = MVideoEdit/View/Test.h; sourceTree = "<group>"; };
+		4CFB35D020ECCEE9009B3893 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = MVideoEdit/View/Test.m; sourceTree = "<group>"; };
+		4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
+		74E6DA36D77F40D544A5AEDC /* Pods-MVideoEdit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.debug.xcconfig"; sourceTree = "<group>"; };
+		E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVideoEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,18 +68,33 @@
 				4CFB35B420EC7CCA009B3893 /* ReactiveSwift.framework in Frameworks */,
 				4CFB35B220EC7CBB009B3893 /* ReactiveCocoa.framework in Frameworks */,
 				4CFB35B020EC7C89009B3893 /* SnapKit.framework in Frameworks */,
+				F52C4ECE5C53698F64B5E5C8 /* Pods_MVideoEdit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45EE8205D0146EDEF8158151 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CFB35CE20ECCEE8009B3893 /* MVideoEdit-Bridging-Header.h */,
+				74E6DA36D77F40D544A5AEDC /* Pods-MVideoEdit.debug.xcconfig */,
+				1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4CFB358F20EC76F7009B3893 = {
 			isa = PBXGroup;
 			children = (
+				4CFB35CF20ECCEE9009B3893 /* Test.h */,
+				4CFB35D020ECCEE9009B3893 /* Test.m */,
+				4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */,
 				4CFB359A20EC76F7009B3893 /* MVideoEdit */,
 				4CFB359920EC76F7009B3893 /* Products */,
 				4CFB35AE20EC7C89009B3893 /* Frameworks */,
+				45EE8205D0146EDEF8158151 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +131,7 @@
 				4CFB35B320EC7CCA009B3893 /* ReactiveSwift.framework */,
 				4CFB35B120EC7CBB009B3893 /* ReactiveCocoa.framework */,
 				4CFB35AF20EC7C89009B3893 /* SnapKit.framework */,
+				E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +139,7 @@
 		4CFB35BB20EC909D009B3893 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4CFB35CC20ECC59C009B3893 /* AudioClip.swift */,
 				4CFB35BC20EC90AA009B3893 /* VideoClip.swift */,
 				4CFB35C620ECA461009B3893 /* RecordSession.swift */,
 			);
@@ -151,10 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CFB35AA20EC76F7009B3893 /* Build configuration list for PBXNativeTarget "MVideoEdit" */;
 			buildPhases = (
+				01AC4CCCB37B02E3A53516DD /* [CP] Check Pods Manifest.lock */,
 				4CFB359420EC76F7009B3893 /* Sources */,
 				4CFB359520EC76F7009B3893 /* Frameworks */,
 				4CFB359620EC76F7009B3893 /* Resources */,
 				4CFB35AD20EC78C0009B3893 /* ShellScript */,
+				FA74338DF91F6F86AAAE2EA8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +207,7 @@
 				TargetAttributes = {
 					4CFB359720EC76F7009B3893 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -213,6 +244,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01AC4CCCB37B02E3A53516DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MVideoEdit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4CFB35AD20EC78C0009B3893 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +279,24 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		FA74338DF91F6F86AAAE2EA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -244,7 +311,9 @@
 				4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */,
 				4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */,
 				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,
+				4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */,
 				4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */,
+				4CFB35D120ECCEE9009B3893 /* Test.m in Sources */,
 				4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */,
 				4CFB35B820EC7DA4009B3893 /* MovieRecordViewController.swift in Sources */,
 			);
@@ -381,8 +450,10 @@
 		};
 		4CFB35AB20EC76F7009B3893 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74E6DA36D77F40D544A5AEDC /* Pods-MVideoEdit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PF4FM2G4XA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -394,6 +465,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhubingyi.MVideoEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MVideoEdit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -401,8 +474,10 @@
 		};
 		4CFB35AC20EC76F7009B3893 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PF4FM2G4XA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -414,6 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhubingyi.MVideoEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MVideoEdit-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

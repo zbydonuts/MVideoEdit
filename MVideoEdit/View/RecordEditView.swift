@@ -18,6 +18,8 @@ protocol RecordEditViewModel {
     var addBgmAction            : Action<Void, Void, NoError> { get }
     var editSepeedAction        : Action<Void, Void, NoError> { get }
     var recordAction            : Action<Void, Void, NoError> { get }
+    
+    var inRecording             : MutableProperty<Bool> { get }
 }
 
 final class RecordEditView: UIView {
@@ -69,6 +71,17 @@ final class RecordEditView: UIView {
         addBgmButton.reactive.pressed = CocoaAction(viewModel.addBgmAction)
         editSpeedButton.reactive.pressed = CocoaAction(viewModel.editSepeedAction)
         recordButton.reactive.pressed = CocoaAction(viewModel.recordAction)
+        
+        viewModel.inRecording.producer.disOnMainWith(self).startWithValues { [weak self] (value) in
+            guard let sSelf = self else { return }
+            UIView.animate(withDuration: 1.0, animations: {
+                sSelf.recordButton.layer.cornerRadius = value ? 0 : 40
+            })
+            
+            sSelf.switchCameraButton.isHidden = value
+            sSelf.addBgmButton.isHidden = value
+            sSelf.editSpeedButton.isHidden = value
+        }
     }
     
     func autolayout() {

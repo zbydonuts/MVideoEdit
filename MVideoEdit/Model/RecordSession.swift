@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import GPUImage
 
 enum CameraType {
     case front

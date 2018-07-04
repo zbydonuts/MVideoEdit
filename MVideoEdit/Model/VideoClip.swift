@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import AVFoundation
+
+struct VideoClip {
+    var assetURL: URL
+    var timeRange: CMTimeRange
+    var frames: Int
+    var beginTime: CMTime
+}
+
+
