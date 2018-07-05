@@ -16,11 +16,13 @@ enum CameraType {
 }
 
 final class RecordSession: NSObject {
+
     
     var captureSession = AVCaptureSession()
     
     var videoDevice: AVCaptureDevice?
     var videoInput : AVCaptureInput?
+    
     
     var audioDevice: AVCaptureDevice?
     var audioInput : AVCaptureInput?
@@ -116,3 +118,77 @@ extension RecordSession: AVCaptureVideoDataOutputSampleBufferDelegate {
         
     }
 }
+
+
+final class GPUImageRecordSession: NSObject {
+    var curCamearType: CameraType = .front
+    
+    private let camera = GPUImageVideoCamera()
+    
+    var output: GPUImageOutput {
+        return camera
+    }
+    
+    override init() {
+        super.init()
+        setupCamera()
+    }
+    
+    func start() {
+        camera.startCapture()
+    }
+    
+    func stop() {
+        camera.stopCapture()
+    }
+    
+    private func setupCamera() {
+        if camera.captureSession.canSetSessionPreset(.hd1280x720) {
+            //original camera.captureSessionPreset = ......
+            camera.captureSession.sessionPreset = .hd1280x720
+        } else if camera.captureSession.canSetSessionPreset(.high) {
+            camera.captureSession.sessionPreset = .high
+        }
+        
+        camera.outputImageOrientation = .portrait
+        camera.horizontallyMirrorRearFacingCamera = false
+        camera.horizontallyMirrorFrontFacingCamera = true
+        camera.addAudioInputsAndOutputs()
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

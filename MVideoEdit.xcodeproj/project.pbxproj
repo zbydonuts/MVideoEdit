@@ -25,7 +25,6 @@
 		4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */; };
 		4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */; };
 		4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CC20ECC59C009B3893 /* AudioClip.swift */; };
-		4CFB35D120ECCEE9009B3893 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35D020ECCEE9009B3893 /* Test.m */; };
 		F52C4ECE5C53698F64B5E5C8 /* Pods_MVideoEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +51,6 @@
 		4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtension.swift; sourceTree = "<group>"; };
 		4CFB35CC20ECC59C009B3893 /* AudioClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
 		4CFB35CE20ECCEE8009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
-		4CFB35CF20ECCEE9009B3893 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Test.h; path = MVideoEdit/View/Test.h; sourceTree = "<group>"; };
-		4CFB35D020ECCEE9009B3893 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = MVideoEdit/View/Test.m; sourceTree = "<group>"; };
 		4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
 		74E6DA36D77F40D544A5AEDC /* Pods-MVideoEdit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.debug.xcconfig"; sourceTree = "<group>"; };
 		E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVideoEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +85,6 @@
 		4CFB358F20EC76F7009B3893 = {
 			isa = PBXGroup;
 			children = (
-				4CFB35CF20ECCEE9009B3893 /* Test.h */,
-				4CFB35D020ECCEE9009B3893 /* Test.m */,
 				4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */,
 				4CFB359A20EC76F7009B3893 /* MVideoEdit */,
 				4CFB359920EC76F7009B3893 /* Products */,
@@ -313,7 +308,6 @@
 				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,
 				4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */,
 				4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */,
-				4CFB35D120ECCEE9009B3893 /* Test.m in Sources */,
 				4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */,
 				4CFB35B820EC7DA4009B3893 /* MovieRecordViewController.swift in Sources */,
 			);

@@ -13,7 +13,8 @@ import Result
 
 
 final class MovieRecordViewModel: NSObject, RecordEditViewModel {
-    let recordSession = RecordSession()
+    //let recordSession = RecordSession()
+    let recordSession = GPUImageRecordSession()
     
     let switchCameraAction: Action<Void, Void, NoError> = {
         return Action { SignalProducer(value: $0) }
@@ -38,7 +39,7 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         
         switchCameraAction.values.disOnMainWith(self).observeValues { [weak self] in
             guard let sSelf = self else { return }
-            sSelf.recordSession.switchCamera()
+            //sSelf.recordSession.switchCamera()
         }
         
         recordAction.values.disOnMainWith(self).observeValues { [weak self] in
@@ -48,7 +49,8 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
     }
     
     func startCapturing() {
-        recordSession.captureSession.startRunning()
+        //recordSession.captureSession.startRunning()
+        recordSession.start()
     }
 }
 

@@ -15,8 +15,13 @@ import SnapKit
 
 final class MovieRecordViewController: UIViewController {
     
-    private lazy var previewView: RecordPreviewView = { [unowned self] in
-        let view = RecordPreviewView(session: viewModel.recordSession.captureSession)
+//    private lazy var previewView: RecordPreviewView = { [unowned self] in
+//        let view = RecordPreviewView(session: viewModel.recordSession.captureSession)
+//        return view
+//    }()
+    
+    private lazy var previewView: GPUImagePreviewView = { [unowned self] in
+        let view = GPUImagePreviewView(session: viewModel.recordSession)
         return view
     }()
     

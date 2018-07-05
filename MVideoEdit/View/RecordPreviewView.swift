@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import GPUImage
 
 protocol RecordPreviewViewModel {
     
@@ -49,6 +50,32 @@ final class RecordPreviewView: UIView {
         super.layoutSubviews()
         previewLayer.frame = bounds
         updateVideoOrientation()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+final class GPUImagePreviewView: UIView {
+    private let previewLayer: GPUImageView = {
+        let view = GPUImageView()
+        view.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
+        return view
+    }()
+    
+    init(session: GPUImageRecordSession) {
+        session.output.addTarget(previewLayer)
+        super.init(frame: .zero)
+        addSubview(previewLayer)
+        autolayout()
+    }
+    
+    private func autolayout() {
+        previewLayer.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
