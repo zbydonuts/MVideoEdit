@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */; };
+		4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */; };
 		4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB359B20EC76F7009B3893 /* AppDelegate.swift */; };
 		4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB359D20EC76F7009B3893 /* ViewController.swift */; };
 		4CFB35A120EC76F7009B3893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB359F20EC76F7009B3893 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.release.xcconfig"; sourceTree = "<group>"; };
+		4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFileManager.swift; sourceTree = "<group>"; };
 		4CFB359820EC76F7009B3893 /* MVideoEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVideoEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFB359B20EC76F7009B3893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFB359D20EC76F7009B3893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */,
+				4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */,
 				4CFB359A20EC76F7009B3893 /* MVideoEdit */,
 				4CFB359920EC76F7009B3893 /* Products */,
 				4CFB35AE20EC7C89009B3893 /* Frameworks */,
@@ -144,6 +149,7 @@
 		4CFB35BE20EC973E009B3893 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */,
 				4CFB35B720EC7DA4009B3893 /* MovieRecordViewController.swift */,
 				4CFB35B920EC7DB9009B3893 /* MovieEditViewController.swift */,
 			);
@@ -300,8 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFB35C220EC9769009B3893 /* MovieRecordViewModel.swift in Sources */,
+				4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */,
 				4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */,
 				4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */,
+				4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */,
 				4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */,
 				4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */,
 				4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */,

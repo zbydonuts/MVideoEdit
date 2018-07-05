@@ -14,12 +14,6 @@ import Result
 import SnapKit
 
 final class MovieRecordViewController: UIViewController {
-    
-//    private lazy var previewView: RecordPreviewView = { [unowned self] in
-//        let view = RecordPreviewView(session: viewModel.recordSession.captureSession)
-//        return view
-//    }()
-    
     private lazy var previewView: GPUImagePreviewView = { [unowned self] in
         let view = GPUImagePreviewView(session: viewModel.recordSession)
         return view
@@ -45,6 +39,11 @@ final class MovieRecordViewController: UIViewController {
     
     func bind(_ viewModel: MovieRecordViewModel) {
         editView.bind(viewModel)
+        
+        viewModel.presentVCAction.values.disOnMainWith(self).observeValues { [weak self] (vc) in
+            guard let sSelf = self else { return }
+            sSelf.present(vc, animated: true, completion: nil)
+        }
     }
     
     func autolayout() {

@@ -9,6 +9,9 @@
 import Foundation
 import AVFoundation
 import GPUImage
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
 enum CameraType {
     case front
@@ -120,10 +123,25 @@ extension RecordSession: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 
+enum GPUImageCameraEvent {
+    case start
+    case pause
+    case resume
+    case stop
+    case rotate
+}
+
+struct RecordState {
+    var movieWriter: GPUImageMovieWriter
+    var outputURL: URL
+}
+
 final class GPUImageRecordSession: NSObject {
-    var curCamearType: CameraType = .front
+    private let videoSize = CGSize(width: 720, height: 1280)
     
     private let camera = GPUImageVideoCamera()
+    private var recordState: RecordState?
+    
     
     var output: GPUImageOutput {
         return camera
@@ -134,17 +152,51 @@ final class GPUImageRecordSession: NSObject {
         setupCamera()
     }
     
-    func start() {
-        camera.startCapture()
+    func excuteCameraEvent(_ event: GPUImageCameraEvent) {
+        switch event {
+        case .start:
+            camera.startCapture()
+        case .pause:
+            camera.pauseCapture()
+        case .resume:
+            camera.resumeCameraCapture()
+        case .stop:
+            camera.stopCapture()
+        case .rotate:
+            camera.rotateCamera()
+        }
     }
     
-    func stop() {
-        camera.stopCapture()
+    func startRecord() {
+        let outputURL = ClipFileManager.shared.requestFileURL(name: "movie")
+        let outputSettings: [AnyHashable: Any] = [AVVideoCodecKey: AVVideoCodecH264,
+                                                  AVVideoWidthKey: videoSize.width,
+                                                 AVVideoHeightKey: videoSize.height,
+                                            AVVideoScalingModeKey: AVVideoScalingModeResizeAspect]
+        
+        let movieWriter = GPUImageMovieWriter(movieURL: outputURL,
+                                                  size: videoSize,
+                                              fileType: AVFileType.mov.rawValue,
+                                        outputSettings: outputSettings)
+        
+        guard let writer = movieWriter else {
+            print("create movie writer failed")
+            return
+        }
+        output.addTarget(writer)
+        camera.audioEncodingTarget = writer
+        recordState = RecordState(movieWriter: writer, outputURL: outputURL)
+        writer.startRecording()
+    }
+    
+    func stopRecord() {
+        recordState?.movieWriter.finishRecording()
+        output.removeTarget(recordState?.movieWriter)
+        camera.audioEncodingTarget = nil
     }
     
     private func setupCamera() {
         if camera.captureSession.canSetSessionPreset(.hd1280x720) {
-            //original camera.captureSessionPreset = ......
             camera.captureSession.sessionPreset = .hd1280x720
         } else if camera.captureSession.canSetSessionPreset(.high) {
             camera.captureSession.sessionPreset = .high
@@ -155,40 +207,4 @@ final class GPUImageRecordSession: NSObject {
         camera.horizontallyMirrorFrontFacingCamera = true
         camera.addAudioInputsAndOutputs()
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,13 +10,13 @@ import Foundation
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import UIKit
 
 
 final class MovieRecordViewModel: NSObject, RecordEditViewModel {
-    //let recordSession = RecordSession()
     let recordSession = GPUImageRecordSession()
     
-    let switchCameraAction: Action<Void, Void, NoError> = {
+    let rotateCameraAction: Action<Void, Void, NoError> = {
         return Action { SignalProducer(value: $0) }
     }()
     
@@ -28,7 +28,15 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         return Action { SignalProducer(value: $0) }
     }()
     
+    let movieListAction: Action<Void, Void, NoError> = {
+        return Action { SignalProducer(value: $0) }
+    }()
+    
     let recordAction: Action<Void, Void, NoError> = {
+        return Action { SignalProducer(value: $0) }
+    }()
+    
+    let presentVCAction: Action<UIViewController, UIViewController, NoError> = {
         return Action { SignalProducer(value: $0) }
     }()
     
@@ -36,21 +44,56 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
     
     override init() {
         super.init()
-        
-        switchCameraAction.values.disOnMainWith(self).observeValues { [weak self] in
+        setupNotification()
+        rotateCameraAction.values.disOnMainWith(self).observeValues { [weak self] in
             guard let sSelf = self else { return }
-            //sSelf.recordSession.switchCamera()
+            sSelf.recordSession.excuteCameraEvent(.rotate)
         }
         
         recordAction.values.disOnMainWith(self).observeValues { [weak self] in
             guard let sSelf = self else { return }
             sSelf.inRecording.swap(!sSelf.inRecording.value)
         }
+        
+        
+        let movieListVCProducer = movieListAction.values.producer.map { _ -> UIViewController in
+            let vc = MovieListViewController()
+            return UINavigationController(rootViewController: vc)
+        }
+        
+        SignalProducer.merge(movieListVCProducer).startWithValues { [weak self] (vc) in
+            self?.presentVCAction.apply(vc).start()
+        }
+        
+        inRecording.signal.disOnMainWith(self).observeValues { [weak self] (value) in
+            guard let sSelf = self else { return }
+            if value {
+                sSelf.recordSession.startRecord()
+            } else {
+                sSelf.recordSession.stopRecord()
+            }
+        }
+    }
+    
+    private func setupNotification() {
+        NotificationCenter.default.reactive.notifications(forName: Notification.Name.UIApplicationWillResignActive, object: nil)
+                                  .disOnMainWith(self)
+                                  .observeValues { [weak self] _ in
+                                    guard let sSelf = self else { return }
+                                    //if in recording, stop recording & save the clip
+                                    sSelf.recordSession.excuteCameraEvent(.pause)
+        }
+        
+        NotificationCenter.default.reactive.notifications(forName: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+                                  .disOnMainWith(self)
+                                  .observeValues { [weak self] _ in
+                                    guard let sSelf = self else { return }
+                                    sSelf.recordSession.excuteCameraEvent(.resume)
+        }
     }
     
     func startCapturing() {
-        //recordSession.captureSession.startRunning()
-        recordSession.start()
+        recordSession.excuteCameraEvent(.start)
     }
 }
 

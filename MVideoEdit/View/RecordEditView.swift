@@ -14,17 +14,18 @@ import UIKit
 import SnapKit
 
 protocol RecordEditViewModel {
-    var switchCameraAction      : Action<Void, Void, NoError> { get }
+    var rotateCameraAction      : Action<Void, Void, NoError> { get }
     var addBgmAction            : Action<Void, Void, NoError> { get }
     var editSepeedAction        : Action<Void, Void, NoError> { get }
     var recordAction            : Action<Void, Void, NoError> { get }
+    var movieListAction         : Action<Void, Void, NoError> { get }
     
     var inRecording             : MutableProperty<Bool> { get }
 }
 
 final class RecordEditView: UIView {
     
-    private let switchCameraButton: UIButton = {
+    private let rotateCameraButton: UIButton = {
         let button = UIButton()
         button.setTitle("Camear", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -48,6 +49,14 @@ final class RecordEditView: UIView {
         return button
     }()
     
+    private let movieListButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("MovieList", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .lightGray
+        return button
+    }()
+    
     private let recordButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .red
@@ -59,18 +68,20 @@ final class RecordEditView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .clear
-        addSubview(switchCameraButton)
+        addSubview(rotateCameraButton)
         addSubview(addBgmButton)
         addSubview(editSpeedButton)
         addSubview(recordButton)
+        addSubview(movieListButton)
         autolayout()
     }
     
     func bind(_ viewModel: RecordEditViewModel) {
-        switchCameraButton.reactive.pressed = CocoaAction(viewModel.switchCameraAction)
-        addBgmButton.reactive.pressed = CocoaAction(viewModel.addBgmAction)
-        editSpeedButton.reactive.pressed = CocoaAction(viewModel.editSepeedAction)
-        recordButton.reactive.pressed = CocoaAction(viewModel.recordAction)
+        rotateCameraButton.reactive.pressed     = CocoaAction(viewModel.rotateCameraAction)
+        addBgmButton.reactive.pressed           = CocoaAction(viewModel.addBgmAction)
+        editSpeedButton.reactive.pressed        = CocoaAction(viewModel.editSepeedAction)
+        movieListButton.reactive.pressed        = CocoaAction(viewModel.movieListAction)
+        recordButton.reactive.pressed           = CocoaAction(viewModel.recordAction)
         
         viewModel.inRecording.producer.disOnMainWith(self).startWithValues { [weak self] (value) in
             guard let sSelf = self else { return }
@@ -78,14 +89,15 @@ final class RecordEditView: UIView {
                 sSelf.recordButton.layer.cornerRadius = value ? 0 : 40
             })
             
-            sSelf.switchCameraButton.isHidden = value
+            sSelf.rotateCameraButton.isHidden = value
             sSelf.addBgmButton.isHidden = value
             sSelf.editSpeedButton.isHidden = value
+            sSelf.movieListButton.isHidden = value
         }
     }
     
     func autolayout() {
-        switchCameraButton.snp.makeConstraints { (make) in
+        rotateCameraButton.snp.makeConstraints { (make) in
             make.right.equalTo(-10)
             make.top.equalTo(40)
             make.height.equalTo(50)
@@ -94,7 +106,7 @@ final class RecordEditView: UIView {
         
         addBgmButton.snp.makeConstraints { (make) in
             make.right.equalTo(-10)
-            make.top.equalTo(switchCameraButton.snp.bottom).offset(20)
+            make.top.equalTo(rotateCameraButton.snp.bottom).offset(20)
             make.height.equalTo(50)
             make.width.equalTo(100)
         }
@@ -106,11 +118,20 @@ final class RecordEditView: UIView {
             make.width.equalTo(100)
         }
         
+        movieListButton.snp.makeConstraints { (make) in
+            make.right.equalTo(-10)
+            make.top.equalTo(editSpeedButton.snp.bottom).offset(20)
+            make.height.equalTo(50)
+            make.width.equalTo(100)
+        }
+        
         recordButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(-25)
             make.size.equalTo(80)
         }
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
