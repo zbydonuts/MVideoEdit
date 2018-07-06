@@ -168,7 +168,7 @@ final class GPUImageRecordSession: NSObject {
     }
     
     func startRecord() {
-        let outputURL = ClipFileManager.shared.requestFileURL(name: "movie")
+        let outputURL = ClipFileManager.shared.requestFileURL(name: "movie", type: "mov")
         let outputSettings: [AnyHashable: Any] = [AVVideoCodecKey: AVVideoCodecH264,
                                                   AVVideoWidthKey: videoSize.width,
                                                  AVVideoHeightKey: videoSize.height,

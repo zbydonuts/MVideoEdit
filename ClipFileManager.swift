@@ -13,6 +13,8 @@ final class ClipFileManager: NSObject {
     static let shared = ClipFileManager()
     private var draftURL: URL?
     
+    var assetURLs = [URL]()
+    
     override init() {
         super.init()
         createRootDir()
@@ -23,15 +25,6 @@ final class ClipFileManager: NSObject {
         let draftURL = documentPath.appendingPathComponent("draft")
         guard FileManager.default.fileExists(atPath: draftURL.path) == false else {
             print("draft directory exists")
-            do {
-                let contents = try FileManager.default.contentsOfDirectory(atPath: draftURL.path)
-                for content in contents {
-                    print("draft file: " + content)
-                }
-            } catch {
-                
-            }
-            
             self.draftURL = draftURL
             return
         }
@@ -43,8 +36,19 @@ final class ClipFileManager: NSObject {
         }
     }
     
-    func requestFileURL(name: String) -> URL {
-        let fileName = name + "\(Int(Date().timeIntervalSince1970))"
+    func fetchAllContents() {
+        do {
+            let contents = try FileManager.default.contentsOfDirectory(atPath: draftURL!.path)
+            assetURLs = contents.map {
+                return draftURL!.appendingPathComponent($0)
+            }
+        } catch {
+            
+        }
+    }
+    
+    func requestFileURL(name: String, type: String) -> URL {
+        let fileName = name + "\(Int(Date().timeIntervalSince1970))" + "." + type
         let url = draftURL!.appendingPathComponent(fileName)
         print("save to " + url.path)
         return url
