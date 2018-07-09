@@ -201,10 +201,23 @@ final class GPUImageRecordSession: NSObject {
         } else if camera.captureSession.canSetSessionPreset(.high) {
             camera.captureSession.sessionPreset = .high
         }
-        
-        camera.outputImageOrientation = .portrait
+
+        updateCameraOrientation()
         camera.horizontallyMirrorRearFacingCamera = false
         camera.horizontallyMirrorFrontFacingCamera = true
         camera.addAudioInputsAndOutputs()
+    }
+    
+    func updateCameraOrientation() {
+        switch UIApplication.shared.statusBarOrientation {
+        case .portrait:
+            camera.outputImageOrientation = .portrait
+        case .landscapeLeft:
+            camera.outputImageOrientation = .landscapeLeft
+        case .landscapeRight:
+            camera.outputImageOrientation = .landscapeRight
+        default:
+            break
+        }
     }
 }
