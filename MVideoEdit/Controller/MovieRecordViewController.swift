@@ -20,6 +20,7 @@ final class MovieRecordViewController: UIViewController {
     }()
     
     private let editView = RecordEditView()
+    private let progressBar = MovieRecordBarView()
     
     private let viewModel = MovieRecordViewModel()
     
@@ -28,6 +29,7 @@ final class MovieRecordViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(previewView)
         view.addSubview(editView)
+        view.addSubview(progressBar)
         autolayout()
         bind(viewModel)
     }
@@ -35,6 +37,10 @@ final class MovieRecordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.startCapturing()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.progressBar.progress = 0.5
+        }
     }
     
     func bind(_ viewModel: MovieRecordViewModel) {
@@ -54,6 +60,13 @@ final class MovieRecordViewController: UIViewController {
         editView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        progressBar.snp.makeConstraints { (make) in
+            make.top.equalTo(10)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(10)
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -62,6 +75,8 @@ final class MovieRecordViewController: UIViewController {
             self.viewModel.deviceRotated()
         }
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
-
-

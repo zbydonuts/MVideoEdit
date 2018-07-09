@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */; };
 		4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */; };
+		4CE7D1DC20F306050015A39D /* MovieCreateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7D1DB20F306050015A39D /* MovieCreateSession.swift */; };
+		4CE7D1DE20F3106B0015A39D /* MovieRecordBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */; };
 		4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB359B20EC76F7009B3893 /* AppDelegate.swift */; };
 		4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB359D20EC76F7009B3893 /* ViewController.swift */; };
 		4CFB35A120EC76F7009B3893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB359F20EC76F7009B3893 /* Main.storyboard */; };
@@ -20,13 +22,13 @@
 		4CFB35B620EC7CDE009B3893 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFB35B520EC7CDE009B3893 /* Result.framework */; };
 		4CFB35B820EC7DA4009B3893 /* MovieRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35B720EC7DA4009B3893 /* MovieRecordViewController.swift */; };
 		4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35B920EC7DB9009B3893 /* MovieEditViewController.swift */; };
-		4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35BC20EC90AA009B3893 /* VideoClip.swift */; };
+		4CFB35BD20EC90AA009B3893 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35BC20EC90AA009B3893 /* Clip.swift */; };
 		4CFB35C220EC9769009B3893 /* MovieRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C120EC9769009B3893 /* MovieRecordViewModel.swift */; };
 		4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */; };
 		4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C620ECA461009B3893 /* RecordSession.swift */; };
 		4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */; };
 		4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */; };
-		4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CC20ECC59C009B3893 /* AudioClip.swift */; };
+		4CFB35CD20ECC59C009B3893 /* BGMClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB35CC20ECC59C009B3893 /* BGMClip.swift */; };
 		F52C4ECE5C53698F64B5E5C8 /* Pods_MVideoEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F1007B7C1CAA1266F285BA /* Pods_MVideoEdit.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.release.xcconfig"; sourceTree = "<group>"; };
 		4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFileManager.swift; sourceTree = "<group>"; };
+		4CE7D1DB20F306050015A39D /* MovieCreateSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreateSession.swift; sourceTree = "<group>"; };
+		4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecordBarView.swift; sourceTree = "<group>"; };
 		4CFB359820EC76F7009B3893 /* MVideoEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVideoEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFB359B20EC76F7009B3893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFB359D20EC76F7009B3893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,13 +51,13 @@
 		4CFB35B520EC7CDE009B3893 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		4CFB35B720EC7DA4009B3893 /* MovieRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecordViewController.swift; sourceTree = "<group>"; };
 		4CFB35B920EC7DB9009B3893 /* MovieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEditViewController.swift; sourceTree = "<group>"; };
-		4CFB35BC20EC90AA009B3893 /* VideoClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClip.swift; sourceTree = "<group>"; };
+		4CFB35BC20EC90AA009B3893 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 		4CFB35C120EC9769009B3893 /* MovieRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecordViewModel.swift; sourceTree = "<group>"; };
 		4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPreviewView.swift; sourceTree = "<group>"; };
 		4CFB35C620ECA461009B3893 /* RecordSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSession.swift; sourceTree = "<group>"; };
 		4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEditView.swift; sourceTree = "<group>"; };
 		4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtension.swift; sourceTree = "<group>"; };
-		4CFB35CC20ECC59C009B3893 /* AudioClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
+		4CFB35CC20ECC59C009B3893 /* BGMClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMClip.swift; sourceTree = "<group>"; };
 		4CFB35CE20ECCEE8009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
 		4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MVideoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
 		74E6DA36D77F40D544A5AEDC /* Pods-MVideoEdit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,8 +143,9 @@
 		4CFB35BB20EC909D009B3893 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4CFB35CC20ECC59C009B3893 /* AudioClip.swift */,
-				4CFB35BC20EC90AA009B3893 /* VideoClip.swift */,
+				4CE7D1DB20F306050015A39D /* MovieCreateSession.swift */,
+				4CFB35BC20EC90AA009B3893 /* Clip.swift */,
+				4CFB35CC20ECC59C009B3893 /* BGMClip.swift */,
 				4CFB35C620ECA461009B3893 /* RecordSession.swift */,
 			);
 			path = Model;
@@ -167,6 +172,7 @@
 		4CFB35C320EC99F9009B3893 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */,
 				4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */,
 				4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */,
 			);
@@ -311,12 +317,14 @@
 				4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */,
 				4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */,
 				4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */,
-				4CFB35BD20EC90AA009B3893 /* VideoClip.swift in Sources */,
+				4CFB35BD20EC90AA009B3893 /* Clip.swift in Sources */,
 				4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */,
 				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,
-				4CFB35CD20ECC59C009B3893 /* AudioClip.swift in Sources */,
+				4CE7D1DC20F306050015A39D /* MovieCreateSession.swift in Sources */,
+				4CFB35CD20ECC59C009B3893 /* BGMClip.swift in Sources */,
 				4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */,
 				4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */,
+				4CE7D1DE20F3106B0015A39D /* MovieRecordBarView.swift in Sources */,
 				4CFB35B820EC7DA4009B3893 /* MovieRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

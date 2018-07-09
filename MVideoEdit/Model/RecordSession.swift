@@ -167,7 +167,8 @@ final class GPUImageRecordSession: NSObject {
         }
     }
     
-    func startRecord() {
+    @discardableResult
+    func startRecord() -> URL? {
         var videoSize = self.videoSize
         var writeTransform = CGAffineTransform.identity
         switch camera.outputImageOrientation {
@@ -180,7 +181,6 @@ final class GPUImageRecordSession: NSObject {
         default:
             break
         }
-        
         
         let outputURL = ClipFileManager.shared.requestFileURL(name: "movie", type: "mov")
         let outputSettings: [AnyHashable: Any] = [AVVideoCodecKey: AVVideoCodecH264,
@@ -195,12 +195,13 @@ final class GPUImageRecordSession: NSObject {
         
         guard let writer = movieWriter else {
             print("create movie writer failed")
-            return
+            return nil
         }
         output.addTarget(writer)
         camera.audioEncodingTarget = writer
         recordState = RecordState(movieWriter: writer, outputURL: outputURL)
         writer.startRecording(inOrientation: writeTransform)
+        return outputURL
     }
     
     func stopRecord() {

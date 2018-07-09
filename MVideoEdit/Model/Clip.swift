@@ -10,12 +10,4 @@ import Foundation
 import AVFoundation
 import UIKit
 
-struct VideoClip {
-    var asset: AVAsset
-    var timeRange: CMTimeRange
-    var frames: Int
-    var beginTime: CMTime
-    var orientation: UIImageOrientation
-}
-
 

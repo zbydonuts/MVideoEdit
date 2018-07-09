@@ -40,7 +40,10 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         return Action { SignalProducer(value: $0) }
     }()
     
-    let inRecording = MutableProperty<Bool>(false)
+    let inRecording    = MutableProperty<Bool>(false)
+
+    private let inRecordingURL = MutableProperty<URL?>(nil)
+    private let createSession  = MovieCreateSession.shared
     
     override init() {
         super.init()
@@ -56,10 +59,12 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         }
         
         
-        let movieListVCProducer = movieListAction.values.producer.map { _ -> UIViewController in
-            let vc = MovieListViewController()
-            return UINavigationController(rootViewController: vc)
+        let movieListVCProducer = movieListAction.values.producer.map { [weak self] _ -> UIViewController in
+            //let vc = MovieListViewController()
+            let vc = MovieClipPreviewViewController(clips: self?.createSession.clips ?? [])
+            return vc
         }
+        
         
         SignalProducer.merge(movieListVCProducer).startWithValues { [weak self] (vc) in
             self?.presentVCAction.apply(vc).start()
@@ -68,9 +73,12 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         inRecording.signal.disOnMainWith(self).observeValues { [weak self] (value) in
             guard let sSelf = self else { return }
             if value {
-                sSelf.recordSession.startRecord()
+                sSelf.inRecordingURL.value = sSelf.recordSession.startRecord()
             } else {
                 sSelf.recordSession.stopRecord()
+                if let url = sSelf.inRecordingURL.value {
+                    sSelf.createSession.addAssetURL(url)
+                }
             }
         }
     }
