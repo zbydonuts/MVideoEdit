@@ -168,6 +168,20 @@ final class GPUImageRecordSession: NSObject {
     }
     
     func startRecord() {
+        var videoSize = self.videoSize
+        var writeTransform = CGAffineTransform.identity
+        switch camera.outputImageOrientation {
+        case .landscapeLeft:
+            writeTransform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * -90)
+            videoSize = CGSize(width: videoSize.height, height: videoSize.width)
+        case .landscapeRight:
+            writeTransform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * 90)
+            videoSize = CGSize(width: videoSize.height, height: videoSize.width)
+        default:
+            break
+        }
+        
+        
         let outputURL = ClipFileManager.shared.requestFileURL(name: "movie", type: "mov")
         let outputSettings: [AnyHashable: Any] = [AVVideoCodecKey: AVVideoCodecH264,
                                                   AVVideoWidthKey: videoSize.width,
@@ -186,7 +200,7 @@ final class GPUImageRecordSession: NSObject {
         output.addTarget(writer)
         camera.audioEncodingTarget = writer
         recordState = RecordState(movieWriter: writer, outputURL: outputURL)
-        writer.startRecording()
+        writer.startRecording(inOrientation: writeTransform)
     }
     
     func stopRecord() {

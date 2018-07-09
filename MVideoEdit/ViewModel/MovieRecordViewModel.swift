@@ -90,13 +90,6 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
                                     guard let sSelf = self else { return }
                                     sSelf.recordSession.excuteCameraEvent(.resume)
         }
-        
-//        NotificationCenter.default.reactive.notifications(forName: Notification.Name.UIDeviceOrientationDidChange, object: nil)
-//                                  .disOnMainWith(self)
-//                                  .observeValues { [weak self] _ in
-//                                    guard let sSelf = self else { return }
-//                                    sSelf.recordSession.updateCameraOrientation()
-//        }
     }
     
     func deviceRotated() {
