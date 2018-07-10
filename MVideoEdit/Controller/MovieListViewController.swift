@@ -149,12 +149,14 @@ final class MovieClipPreviewViewController: UIViewController {
         return layer
     }()
     
+    private var movieComposition: MovieComposition?
     private var player = AVPlayer()
-    private var clips: [Clip]
-    private var currentIndex: Int = 0
+//    private var clips: [Clip]
+//    private var currentIndex: Int = 0
     
-    init(clips: [Clip]) {
-        self.clips = clips
+    init(movieComposition: MovieComposition?) {
+//        self.clips = clips
+        self.movieComposition = movieComposition
         super.init(nibName: nil, bundle: nil)
         playerLayer.player = player
     }
@@ -171,8 +173,12 @@ final class MovieClipPreviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard clips.count > 0 else { return }
-        playClipAtIndex(0)
+//        guard clips.count > 0 else { return }
+//        playClipAtIndex(0)
+        guard let movie = movieComposition else { return }
+        let playeItem = AVPlayerItem(asset: movie.composition)
+        player.replaceCurrentItem(with: playeItem)
+        player.play()
     }
     
     func setupNotification() {
@@ -198,16 +204,16 @@ final class MovieClipPreviewViewController: UIViewController {
     
     @objc
     func didFinishPlaying(notificaiton: Notification) {
-        currentIndex += 1
-        guard currentIndex < clips.count else { return }
-        playClipAtIndex(currentIndex)
+//        currentIndex += 1
+//        guard currentIndex < clips.count else { return }
+//        playClipAtIndex(currentIndex)
     }
     
     private func playClipAtIndex(_ index: Int) {
-        let asset = AVAsset(url: clips[index].assetURL)
-        let playItem = AVPlayerItem(asset: asset)
-        player.replaceCurrentItem(with: playItem)
-        player.play()
+//        let asset = AVAsset(url: clips[index].assetURL)
+//        let playItem = AVPlayerItem(asset: asset)
+//        player.replaceCurrentItem(with: playItem)
+//        player.play()
     }
     
     override func viewDidLayoutSubviews() {

@@ -43,7 +43,6 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
     let inRecording    = MutableProperty<Bool>(false)
 
     private let inRecordingURL = MutableProperty<URL?>(nil)
-    private let createSession  = MovieCreateSession.shared
     
     override init() {
         super.init()
@@ -59,9 +58,8 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         }
         
         
-        let movieListVCProducer = movieListAction.values.producer.map { [weak self] _ -> UIViewController in
-            //let vc = MovieListViewController()
-            let vc = MovieClipPreviewViewController(clips: self?.createSession.clips ?? [])
+        let movieListVCProducer = movieListAction.values.producer.map { _ -> UIViewController in
+            let vc = MovieClipPreviewViewController(movieComposition: MovieCreateManager.shared.getMovieComposition())
             return vc
         }
         
@@ -77,7 +75,7 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
             } else {
                 sSelf.recordSession.stopRecord()
                 if let url = sSelf.inRecordingURL.value {
-                    sSelf.createSession.addAssetURL(url)
+                    MovieCreateManager.shared.addAssetURL(url)
                 }
             }
         }

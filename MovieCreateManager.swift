@@ -9,22 +9,21 @@
 import Foundation
 import AVFoundation
 
-struct Clip {
+final class Clip: NSObject {
     var assetURL: URL
     var timeRange: CMTimeRange
+    var offsetTime: CMTime = kCMTimeZero
     
     init(assetURL: URL, timeRange: CMTimeRange) {
         self.assetURL = assetURL
         self.timeRange = timeRange
+        super.init()
     }
 }
 
-final class MovieCreateSession: NSObject {
-    
-    static let shared = MovieCreateSession()
+final class MovieCreateManager: NSObject {
+    static let shared = MovieCreateManager()
     var clips: [Clip]
-    
-    private var currentTime: CMTime = kCMTimeZero
     
     override init() {
         clips = []
@@ -34,8 +33,13 @@ final class MovieCreateSession: NSObject {
     func addAssetURL(_ url: URL) {
         let asset = AVAsset(url: url)
         let duration = asset.duration
-        let timeRange = CMTimeRangeMake(currentTime, duration)
+        let timeRange = CMTimeRangeMake(CMTimeMake(10, 600), CMTimeSubtract(duration, CMTimeMake(10, 600)))
         let clip = Clip(assetURL: url, timeRange: timeRange)
         clips.append(clip)
+    }
+    
+    func getMovieComposition() -> MovieComposition? {
+        let composor = MovieComposer(clips: clips)
+        return composor.movieComposition
     }
 }
