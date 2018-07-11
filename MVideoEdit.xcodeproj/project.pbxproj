@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C3FEEE720F5A0E900354AD9 /* easylove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C3FEEE620F5A0E900354AD9 /* easylove.mp3 */; };
 		4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */; };
 		4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */; };
+		4C97189E20F4ADA2003C5665 /* kataomoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C97189D20F4ADA2003C5665 /* kataomoi.mp3 */; };
+		4CCD25AE20F45A1100198D0C /* MovieBGMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD25AD20F45A1100198D0C /* MovieBGMSelectView.swift */; };
 		4CE7D1DC20F306050015A39D /* MovieCreateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7D1DB20F306050015A39D /* MovieCreateManager.swift */; };
 		4CE7D1DE20F3106B0015A39D /* MovieRecordBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */; };
 		4CE7D1E020F364AA0015A39D /* MovieConposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7D1DF20F364AA0015A39D /* MovieConposer.swift */; };
@@ -35,8 +38,11 @@
 
 /* Begin PBXFileReference section */
 		1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.release.xcconfig"; sourceTree = "<group>"; };
+		4C3FEEE620F5A0E900354AD9 /* easylove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = easylove.mp3; sourceTree = "<group>"; };
 		4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFileManager.swift; sourceTree = "<group>"; };
+		4C97189D20F4ADA2003C5665 /* kataomoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kataomoi.mp3; sourceTree = "<group>"; };
+		4CCD25AD20F45A1100198D0C /* MovieBGMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBGMSelectView.swift; sourceTree = "<group>"; };
 		4CE7D1DB20F306050015A39D /* MovieCreateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreateManager.swift; sourceTree = "<group>"; };
 		4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecordBarView.swift; sourceTree = "<group>"; };
 		4CE7D1DF20F364AA0015A39D /* MovieConposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieConposer.swift; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 		4CFB358F20EC76F7009B3893 = {
 			isa = PBXGroup;
 			children = (
+				4C3FEEE620F5A0E900354AD9 /* easylove.mp3 */,
+				4C97189D20F4ADA2003C5665 /* kataomoi.mp3 */,
 				4CFB35D320ECCF90009B3893 /* MVideoEdit-Bridging-Header.h */,
 				4CE7D1DF20F364AA0015A39D /* MovieConposer.swift */,
 				4CE7D1DB20F306050015A39D /* MovieCreateManager.swift */,
@@ -178,6 +186,7 @@
 				4CE7D1DD20F3106B0015A39D /* MovieRecordBarView.swift */,
 				4CFB35C420EC9A20009B3893 /* RecordPreviewView.swift */,
 				4CFB35C820ECB3E7009B3893 /* RecordEditView.swift */,
+				4CCD25AD20F45A1100198D0C /* MovieBGMSelectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +257,8 @@
 				4CFB35A620EC76F7009B3893 /* LaunchScreen.storyboard in Resources */,
 				4CFB35A320EC76F7009B3893 /* Assets.xcassets in Resources */,
 				4CFB35A120EC76F7009B3893 /* Main.storyboard in Resources */,
+				4C97189E20F4ADA2003C5665 /* kataomoi.mp3 in Resources */,
+				4C3FEEE720F5A0E900354AD9 /* easylove.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +332,7 @@
 				4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */,
 				4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */,
 				4CFB35BD20EC90AA009B3893 /* Clip.swift in Sources */,
+				4CCD25AE20F45A1100198D0C /* MovieBGMSelectView.swift in Sources */,
 				4CE7D1E020F364AA0015A39D /* MovieConposer.swift in Sources */,
 				4CFB35BA20EC7DB9009B3893 /* MovieEditViewController.swift in Sources */,
 				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,

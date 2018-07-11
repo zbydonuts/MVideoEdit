@@ -21,6 +21,7 @@ final class MovieRecordViewController: UIViewController {
     
     private let editView = RecordEditView()
     private let progressBar = MovieRecordBarView()
+    private let bgmSelectView = MovieBGMSelectView()
     
     private let viewModel = MovieRecordViewModel()
     
@@ -30,6 +31,7 @@ final class MovieRecordViewController: UIViewController {
         view.addSubview(previewView)
         view.addSubview(editView)
         view.addSubview(progressBar)
+        view.addSubview(bgmSelectView)
         autolayout()
         bind(viewModel)
     }
@@ -45,11 +47,13 @@ final class MovieRecordViewController: UIViewController {
     
     func bind(_ viewModel: MovieRecordViewModel) {
         editView.bind(viewModel)
+        bgmSelectView.bind(viewModel)
         
         viewModel.presentVCAction.values.disOnMainWith(self).observeValues { [weak self] (vc) in
             guard let sSelf = self else { return }
             sSelf.present(vc, animated: true, completion: nil)
         }
+    
     }
     
     func autolayout() {
@@ -66,6 +70,11 @@ final class MovieRecordViewController: UIViewController {
             make.left.equalTo(20)
             make.right.equalTo(-20)
             make.height.equalTo(10)
+        }
+        
+        bgmSelectView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(200)
         }
     }
     

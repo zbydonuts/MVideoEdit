@@ -13,7 +13,7 @@ import Result
 import UIKit
 
 
-final class MovieRecordViewModel: NSObject, RecordEditViewModel {
+final class MovieRecordViewModel: NSObject, RecordEditViewModel, MovieBGMSelectViewModel {
     let recordSession = GPUImageRecordSession()
     
     let rotateCameraAction: Action<Void, Void, NoError> = {
@@ -40,8 +40,15 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
         return Action { SignalProducer(value: $0) }
     }()
     
+    let closeBGMSelectAction: Action<Void, Void, NoError> = {
+        return Action { SignalProducer(value: $0) }
+    }()
+    
     let inRecording    = MutableProperty<Bool>(false)
-
+    let bgmSelectViewHidden = MutableProperty<Bool>(true)
+    
+    
+    let currentBGM = MutableProperty<BGM?>(nil)
     private let inRecordingURL = MutableProperty<URL?>(nil)
     
     override init() {
@@ -63,6 +70,11 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
             return vc
         }
         
+        addBgmAction.values.disOnMainWith(self).observeValues { [weak self] _ in
+            guard let sSelf = self else { return }
+            sSelf.bgmSelectViewHidden.swap(!sSelf.bgmSelectViewHidden.value)
+        }
+        
         
         SignalProducer.merge(movieListVCProducer).startWithValues { [weak self] (vc) in
             self?.presentVCAction.apply(vc).start()
@@ -78,6 +90,11 @@ final class MovieRecordViewModel: NSObject, RecordEditViewModel {
                     MovieCreateManager.shared.addAssetURL(url)
                 }
             }
+        }
+        
+        currentBGM.producer.disOnMainWith(self).skipNil().startWithValues { (bgm) in
+            print("switch bgm to \(bgm.name)")
+            MovieCreateManager.shared.addBGM(bgm)
         }
     }
     
