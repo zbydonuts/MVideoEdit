@@ -66,7 +66,11 @@ final class GPUImagePreviewView: UIView {
     }()
     
     init(session: GPUImageRecordSession) {
-        session.output.addTarget(previewLayer)
+        let movieFilter = MovieFilter(filters: [TestFilter()])
+        movieFilter.enableFilter(input: session.output, outputView: previewLayer)
+        
+        
+        //session.output.addTarget(previewLayer)
         super.init(frame: .zero)
         addSubview(previewLayer)
         autolayout()

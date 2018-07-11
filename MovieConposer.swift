@@ -137,7 +137,7 @@ final class MovieComposer: NSObject {
         do {
             try newAudioTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, composition.duration), of: audioTrack, at: kCMTimeZero)
         } catch(let error) {
-            print("add bgm audio track failed: " + error.localizedDescription)
+            print("add audio track failed: " + error.localizedDescription)
         }
         return newAudioTrack
     }

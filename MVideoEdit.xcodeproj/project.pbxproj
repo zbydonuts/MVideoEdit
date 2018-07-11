@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C3FEEE720F5A0E900354AD9 /* easylove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C3FEEE620F5A0E900354AD9 /* easylove.mp3 */; };
+		4C3FEEEC20F5FD9200354AD9 /* MovieFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FEEEB20F5FD9200354AD9 /* MovieFilter.swift */; };
+		4C3FEEF020F6020400354AD9 /* TestFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FEEEF20F6020400354AD9 /* TestFilter.m */; };
 		4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */; };
 		4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */; };
 		4C97189E20F4ADA2003C5665 /* kataomoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C97189D20F4ADA2003C5665 /* kataomoi.mp3 */; };
@@ -39,6 +41,9 @@
 /* Begin PBXFileReference section */
 		1277D2981CEF07023262061B /* Pods-MVideoEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVideoEdit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVideoEdit/Pods-MVideoEdit.release.xcconfig"; sourceTree = "<group>"; };
 		4C3FEEE620F5A0E900354AD9 /* easylove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = easylove.mp3; sourceTree = "<group>"; };
+		4C3FEEEB20F5FD9200354AD9 /* MovieFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFilter.swift; sourceTree = "<group>"; };
+		4C3FEEEE20F6020400354AD9 /* TestFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFilter.h; sourceTree = "<group>"; };
+		4C3FEEEF20F6020400354AD9 /* TestFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFilter.m; sourceTree = "<group>"; };
 		4C422EEA20EDF40A008229F4 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		4C422EEC20EDFCAB008229F4 /* ClipFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFileManager.swift; sourceTree = "<group>"; };
 		4C97189D20F4ADA2003C5665 /* kataomoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kataomoi.mp3; sourceTree = "<group>"; };
@@ -98,6 +103,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C3FEEEA20F5FD6800354AD9 /* GPUImage */ = {
+			isa = PBXGroup;
+			children = (
+				4C3FEEED20F601AC00354AD9 /* Filter */,
+				4C3FEEEB20F5FD9200354AD9 /* MovieFilter.swift */,
+			);
+			path = GPUImage;
+			sourceTree = "<group>";
+		};
+		4C3FEEED20F601AC00354AD9 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				4C3FEEEE20F6020400354AD9 /* TestFilter.h */,
+				4C3FEEEF20F6020400354AD9 /* TestFilter.m */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		4CFB358F20EC76F7009B3893 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +148,7 @@
 		4CFB359A20EC76F7009B3893 /* MVideoEdit */ = {
 			isa = PBXGroup;
 			children = (
+				4C3FEEEA20F5FD6800354AD9 /* GPUImage */,
 				4CFB35CA20ECB9F8009B3893 /* ReactiveExtension.swift */,
 				4CFB35C320EC99F9009B3893 /* View */,
 				4CFB35C020EC9751009B3893 /* ViewModel */,
@@ -329,6 +353,7 @@
 				4C422EED20EDFCAB008229F4 /* ClipFileManager.swift in Sources */,
 				4CFB35C920ECB3E7009B3893 /* RecordEditView.swift in Sources */,
 				4CFB35C720ECA461009B3893 /* RecordSession.swift in Sources */,
+				4C3FEEEC20F5FD9200354AD9 /* MovieFilter.swift in Sources */,
 				4C422EEB20EDF40A008229F4 /* MovieListViewController.swift in Sources */,
 				4CFB359E20EC76F7009B3893 /* ViewController.swift in Sources */,
 				4CFB35BD20EC90AA009B3893 /* Clip.swift in Sources */,
@@ -338,6 +363,7 @@
 				4CFB35C520EC9A20009B3893 /* RecordPreviewView.swift in Sources */,
 				4CE7D1DC20F306050015A39D /* MovieCreateManager.swift in Sources */,
 				4CFB35CD20ECC59C009B3893 /* BGMClip.swift in Sources */,
+				4C3FEEF020F6020400354AD9 /* TestFilter.m in Sources */,
 				4CFB359C20EC76F7009B3893 /* AppDelegate.swift in Sources */,
 				4CFB35CB20ECB9F8009B3893 /* ReactiveExtension.swift in Sources */,
 				4CE7D1DE20F3106B0015A39D /* MovieRecordBarView.swift in Sources */,
